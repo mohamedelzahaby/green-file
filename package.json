@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "your-build-command-here"
+    "build": "npm run build"
   },
   "dependencies": {
     "firebase": "^10.5.2"

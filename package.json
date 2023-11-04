@@ -3,7 +3,8 @@
     "build": "npm --config webpack.config.js"
   },
   "dependencies": {
-    "firebase": "^10.5.2"
+    "firebase": "^10.5.2",
+    "webpack": "^5.89.0"
   },
   "name": "green_file",
   "description": "A new Flutter project.",
@@ -13,7 +14,7 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }

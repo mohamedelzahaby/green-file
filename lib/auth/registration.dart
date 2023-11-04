@@ -13,6 +13,7 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
+  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _repasswordController = TextEditingController();
@@ -37,6 +38,7 @@ class _RegistrationState extends State<Registration> {
   @override
   void dispose() {
     super.dispose();
+    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _repasswordController.dispose();
@@ -105,7 +107,7 @@ class _RegistrationState extends State<Registration> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
-                        controller: _emailController,
+                        controller: _nameController,
                         cursorColor: Colors.black,
                         decoration: InputDecoration(
                           hintText: "full name",

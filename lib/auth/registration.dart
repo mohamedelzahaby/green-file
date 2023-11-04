@@ -212,7 +212,7 @@ class _RegistrationState extends State<Registration> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: GestureDetector(
-                    onTap: () => signup(),
+                    onTap: signup,
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(

@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
         .signInWithEmailAndPassword(
             email: _emailController.text.trim(),
             password: _passwordController.text.trim())
-        .then((value) => Get.offAllNamed(AppRoutes.Home));
+        .then((value) => Get.offAllNamed(AppRoutes.NavBar));
   }
 
   @override

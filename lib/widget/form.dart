@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, sized_box_for_whitespace, non_constant_identifier_names
+// ignore_for_file: camel_case_types, sized_box_for_whitespace, non_constant_identifier_names, avoid_print, must_be_immutable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +62,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: _companynameController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "company name",
                   // prefixIcon: Icon(
                   //   Icons.person,
@@ -87,7 +87,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: _sectorworkController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "Sector work",
                   // prefixIcon: Icon(
                   //   Icons.email,
@@ -112,7 +112,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: _jobtitleController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "job title",
                   // prefixIcon: Icon(
                   //   Icons.email,
@@ -137,7 +137,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: _descripitionController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "descripition",
                   // prefixIcon: Icon(
                   //   Icons.email,
@@ -162,7 +162,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: _ExprianceController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "Expriance",
                   // prefixIcon: Icon(
                   //   Icons.email,

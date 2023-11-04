@@ -6,7 +6,12 @@ import 'package:green_file/screens/start_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "AIzaSyCcYfWg9mR9f9yVn9BpEtTQVKbrAEpKjPI",
+          appId: "1:980052399235:web:0a2b64c253e802681337b6",
+          messagingSenderId: "980052399235",
+          projectId: "green-file-6e537"));
   runApp(const MyApp());
 }
 

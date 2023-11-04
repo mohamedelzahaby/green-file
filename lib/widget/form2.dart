@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, sized_box_for_whitespace
+// ignore_for_file: camel_case_types, sized_box_for_whitespace, must_be_immutable, non_constant_identifier_names, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class Job_Form2 extends StatelessWidget {
               child: TextFormField(
                 controller: _englishlevelController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "english level",
                   // prefixIcon: Icon(
                   //   Icons.person,
@@ -71,7 +71,7 @@ class Job_Form2 extends StatelessWidget {
               child: TextFormField(
                 controller: _coursesController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "courses",
                   // prefixIcon: Icon(
                   //   Icons.email,
@@ -96,7 +96,7 @@ class Job_Form2 extends StatelessWidget {
               child: TextFormField(
                 controller: _qualificationController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "qualification",
                   // prefixIcon: Icon(
                   //   Icons.email,
@@ -121,7 +121,7 @@ class Job_Form2 extends StatelessWidget {
               child: TextFormField(
                 controller: _locationController,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "location",
                   // prefixIcon: Icon(
                   //   Icons.email,

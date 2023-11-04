@@ -15,27 +15,19 @@ import '../widget/searchbar.dart';
 class Post_a_job extends StatefulWidget {
   const Post_a_job({super.key});
 
-
-
-
-
   @override
   State<Post_a_job> createState() => _Post_a_jobState();
 }
 
 class _Post_a_jobState extends State<Post_a_job> {
-
-
   final CreateProjectController controller = Get.put(CreateProjectController());
 
-
-  
   final ScrollController vcontroller = ScrollController();
 
   CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
 
   // Future<void> addJob() {
-    
+
   //   // Call the user's CollectionReference to add a new user
   //   return jobs
   //       .add({
@@ -95,11 +87,15 @@ class _Post_a_jobState extends State<Post_a_job> {
                           Job_Form2(),
                         ],
                       ),
+                      SizedBox(
+                        height: screenHight * 0.05,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: GestureDetector(
-                          onTap: () =>controller.addjob(),
+                          onTap: () => controller.addjob(),
                           child: Container(
+                            width: screenwidth * 0.5,
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 color: Colors.green,

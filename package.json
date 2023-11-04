@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "npm run build"
+    "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "firebase": "^10.5.2"

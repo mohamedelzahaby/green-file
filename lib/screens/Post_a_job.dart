@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:green_file/widget/form.dart';
+import 'package:green_file/widget/form2.dart';
 import 'package:vs_scrollbar/vs_scrollbar.dart';
 
 import '../widget/drawer.dart';
@@ -53,7 +54,7 @@ class _Post_a_jobState extends State<Post_a_job> {
                           SizedBox(
                             width: screenwidth * 0.02,
                           ),
-                          const Job_Form(),
+                          const Job_Form2(),
                         ],
                       ),
                     ],

@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class Job_Form extends StatelessWidget {
-  const Job_Form({super.key});
+class Job_Form2 extends StatelessWidget {
+  const Job_Form2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class Job_Form extends StatelessWidget {
                 // controller: _emailController,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
-                  hintText: "company name",
+                  hintText: "english level",
                   // prefixIcon: Icon(
                   //   Icons.person,
                   //   color: Colors.grey[400],
@@ -61,7 +61,7 @@ class Job_Form extends StatelessWidget {
                 // controller: _emailController,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
-                  hintText: "Sector work",
+                  hintText: "courses",
                   // prefixIcon: Icon(
                   //   Icons.email,
                   //   color: Colors.grey[400],
@@ -86,7 +86,7 @@ class Job_Form extends StatelessWidget {
                 // controller: _emailController,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
-                  hintText: "job title",
+                  hintText: "qualification",
                   // prefixIcon: Icon(
                   //   Icons.email,
                   //   color: Colors.grey[400],
@@ -111,7 +111,7 @@ class Job_Form extends StatelessWidget {
                 // controller: _emailController,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
-                  hintText: "descripition",
+                  hintText: "location",
                   // prefixIcon: Icon(
                   //   Icons.email,
                   //   color: Colors.grey[400],

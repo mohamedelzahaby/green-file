@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,14 @@ class _LoginState extends State<Login> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _repasswordController = TextEditingController();
+
+  Future signin() async {
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim())
+        .then((value) => Get.offAllNamed(AppRoutes.Home));
+  }
 
   @override
   void dispose() {
@@ -68,7 +77,7 @@ class _LoginState extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Log in",
+                const Text("Login",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
@@ -141,7 +150,7 @@ class _LoginState extends State<Login> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: GestureDetector(
-                    // onTap: signin,
+                    onTap: signin,
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(

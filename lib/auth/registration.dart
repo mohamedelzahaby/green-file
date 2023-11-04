@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../routes.dart';
+import 'auth.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -14,6 +16,23 @@ class _RegistrationState extends State<Registration> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _repasswordController = TextEditingController();
+
+  Future signup() async {
+    print("object");
+    // var userCredential =
+    await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        )
+        .catchError((e) => print(e));
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return const auth();
+      }),
+    );
+  }
 
   @override
   void dispose() {
@@ -189,9 +208,7 @@ class _RegistrationState extends State<Registration> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: GestureDetector(
-                    onTap: () {
-                      Get.toNamed(AppRoutes.Profile);
-                    },
+                    onTap: () => signup(),
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(

@@ -5,7 +5,6 @@
   "scripts": {
     "build-prod": "npm --config webpack.config.js"
   },
-
   "dependencies": {
     "firebase": "^10.5.2"
   },

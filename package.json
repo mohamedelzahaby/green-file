@@ -3,12 +3,14 @@
     "build": "npm --config webpack.config.js"
   },
   "dependencies": {
-    "firebase": "^10.5.2"
+    "firebase": "^10.5.2",
+    "lodash": "^4.17.21"
   },
   "name": "green_file",
   "description": "A new Flutter project.",
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
   "directories": {
     "lib": "lib",
     "test": "test"

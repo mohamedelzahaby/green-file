@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
-                  "Hallo & Welcome to ",
+                  "Hello & Welcome to ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

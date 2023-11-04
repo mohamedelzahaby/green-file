@@ -41,7 +41,7 @@ class _RegistrationState extends State<Registration> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
-                  "Hallo & Welcome to ",
+                  "Hello & Welcome to ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

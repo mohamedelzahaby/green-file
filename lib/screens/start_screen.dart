@@ -19,10 +19,7 @@ class Start_Screen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(
-                    "assets/img/start.jpg")) 
-            ),
+                fit: BoxFit.fill, image: AssetImage("assets/img/start.jpg"))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +36,7 @@ class Start_Screen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Hallo & Welcome to ",
+                        "Hello & Welcome to ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,

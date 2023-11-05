@@ -78,14 +78,17 @@ class _Post_a_jobState extends State<Post_a_job> {
                       SizedBox(
                         height: screenHight * 0.05,
                       ),
-                      Row(
-                        children: [
-                          Job_Form(),
-                          SizedBox(
-                            width: screenwidth * 0.02,
-                          ),
-                          Job_Form2(),
-                        ],
+                      Form(
+                        key: controller.globalKey,
+                        child: Row(
+                          children: [
+                            Job_Form(),
+                            SizedBox(
+                              width: screenwidth * 0.02,
+                            ),
+                            Job_Form2(),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: screenHight * 0.05,

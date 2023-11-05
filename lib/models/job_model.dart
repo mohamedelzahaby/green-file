@@ -9,7 +9,6 @@ class jobModel {
     required this.userId,
     required this.companyname,
     required this.description,
-    required this.images,
     required this.sectorwork,
     required this.jobtitle,
     required this.Expriance,
@@ -30,7 +29,6 @@ class jobModel {
   final String qualification;
   final String courses;
 
-  final List<String> images;
 
   factory jobModel.fromJson(DocumentSnapshot<Map<String, dynamic>> json) {
     final data = json.data();
@@ -45,7 +43,6 @@ class jobModel {
       location: data["location"],
       qualification: data["qualification"],
       courses: data["courses"],
-      images: List<String>.from(data["images"].map((x) => x)),
     );
   }
 
@@ -53,13 +50,12 @@ class jobModel {
         "userId": userId,
         "companyname": companyname,
         "description": description,
-        " Expriance": Expriance,
+        "Expriance": Expriance,
         "jobtitle": jobtitle,
         "sectorwork": sectorwork,
         "englishlevel": englishlevel,
-        " location": location,
+        "location": location,
         "qualification": qualification,
         "courses": courses,
-        "images": List<dynamic>.from(images.map((x) => x)),
       };
 }

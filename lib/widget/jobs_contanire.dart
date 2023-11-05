@@ -1,9 +1,11 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:green_file/models/job_model.dart';
 
 class Jobs_contanire extends StatelessWidget {
-  const Jobs_contanire({super.key});
+  final jobModel  job;
+  const Jobs_contanire({super.key, required this.job});
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +23,22 @@ class Jobs_contanire extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children: const [
-                CircleAvatar(
+              children:  [
+                const CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.black,
                   backgroundImage: AssetImage(
                     "assets/img/man.jpg",
                   ),
                 ),
-                Text("company name")
+                Text(job.companyname)
               ],
             ),
             SizedBox(
               height: screenHight * 0.01,
             ),
-            const Text("jop title",
-                style: TextStyle(
+             Text(job.jobtitle,
+                style: const TextStyle(
                     color: Colors.green,
                     fontSize: 20,
                     fontWeight: FontWeight.bold)),
@@ -44,12 +46,12 @@ class Jobs_contanire extends StatelessWidget {
               height: screenHight * 0.01,
             ),
             Row(
-              children: const [
+              children: [
                 Icon(
                   Icons.location_on,
                   color: Colors.grey,
                 ),
-                Text("location"),
+                Text(job.location),
               ],
             ),
           ],

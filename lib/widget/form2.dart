@@ -2,32 +2,15 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../controllers/create_project_controller.dart';
 
 class Job_Form2 extends StatelessWidget {
   Job_Form2({super.key});
-  final _englishlevelController = TextEditingController();
-  final _coursesController = TextEditingController();
-  final _qualificationController = TextEditingController();
-  final _locationController = TextEditingController();
-  final _ExprianceController = TextEditingController();
 
-  CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
-
-  Future<void> addJob() {
-    // Call the user's CollectionReference to add a new user
-    return jobs
-        .add({
-        
-          '_Expriance': _ExprianceController.text, // 42
-          '__english level': _englishlevelController.text, // John Doe
-          '_courses': _coursesController.text, // Stokes and Sons
-          '_qualification': _qualificationController.text, // 42
-          '_location': _locationController.text, // 42
-          // 42
-        })
-        .then((value) => print("job Added"))
-        .catchError((error) => print("Failed to add job: $error"));
-  }
+  final CreateProjectController controller = Get.put(CreateProjectController());
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +27,7 @@ class Job_Form2 extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
-                controller: _englishlevelController,
+                controller: controller.englishlevel,
                 cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   hintText: "english level",
@@ -69,7 +52,7 @@ class Job_Form2 extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
-                controller: _coursesController,
+                controller: controller.courses,
                 cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   hintText: "courses",
@@ -94,7 +77,7 @@ class Job_Form2 extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
-                controller: _qualificationController,
+                controller: controller.qualification,
                 cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   hintText: "qualification",
@@ -119,7 +102,7 @@ class Job_Form2 extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
-                controller: _locationController,
+                controller: controller.location,
                 cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   hintText: "location",

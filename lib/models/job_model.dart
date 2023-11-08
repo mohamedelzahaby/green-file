@@ -29,7 +29,6 @@ class jobModel {
   final String qualification;
   final String courses;
 
-
   factory jobModel.fromJson(DocumentSnapshot<Map<String, dynamic>> json) {
     final data = json.data();
     return jobModel(

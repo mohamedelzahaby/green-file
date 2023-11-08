@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:green_file/models/job_model.dart';
 
 class Jobs_contanire extends StatelessWidget {
-  final jobModel  job;
+  final jobModel job;
   const Jobs_contanire({super.key, required this.job});
 
   @override
@@ -23,7 +23,7 @@ class Jobs_contanire extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children:  [
+              children: [
                 const CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.black,
@@ -37,7 +37,7 @@ class Jobs_contanire extends StatelessWidget {
             SizedBox(
               height: screenHight * 0.01,
             ),
-             Text(job.jobtitle,
+            Text(job.jobtitle,
                 style: const TextStyle(
                     color: Colors.green,
                     fontSize: 20,
@@ -47,7 +47,7 @@ class Jobs_contanire extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.location_on,
                   color: Colors.grey,
                 ),

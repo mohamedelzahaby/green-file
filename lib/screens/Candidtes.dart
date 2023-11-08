@@ -29,18 +29,42 @@ class _CandidatesState extends State<Candidates> {
         isAlwaysShown: true,
         child: ListView.builder(
           controller: vcontroller,
-          itemCount: 20,
+          itemCount: 1,
           itemBuilder: (Context, index) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Search_bar(),
-                SizedBox(
-                  height: screenHight * 0.05,
-                ),
-                const Sort_filter(),
-              ],
+            return Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: const AlignmentDirectional(1.00, -1.00),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          // drawer
+                          Scaffold.of(context).openDrawer();
+                        },
+                        child: const Icon(
+                          Icons.dehaze,
+                          color: Colors.black,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Search_bar(),
+                  SizedBox(
+                    height: screenHight * 0.05,
+                  ),
+                  const Sort_filter(),
+                ],
+              ),
             );
           },
         ),

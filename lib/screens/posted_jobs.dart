@@ -26,64 +26,88 @@ class _Posted_jobsState extends State<Posted_jobs> {
     controller.getJob();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     final screenHight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       endDrawer: const RigthDrawer(),
-      body: VsScrollbar(
-        controller: vcontroller,
-        showTrackOnHover: true,
-        isAlwaysShown: true,
-        child: ListView.builder(
+      body: Builder(builder: (context) {
+        return VsScrollbar(
           controller: vcontroller,
-          itemCount: 1,
-          itemBuilder: (Context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Search_bar(),
-                  ),
-                  SizedBox(
-                    height: screenHight * 0.05,
-                  ),
-                  const Sort_filter(),
-                  SizedBox(
-                    height: screenHight * 0.08,
-                  ),
-                  Obx(
-                    () => controller.isLoading.value
-                        ? const CircularProgressIndicator()
-                        : GridView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              mainAxisExtent: 150,
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10,
-                            ),
-                            itemCount: controller.jobs.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Jobs_contanire(
-                                job: controller.jobs[index],
-                              );
-                            },
+          showTrackOnHover: true,
+          isAlwaysShown: true,
+          child: ListView.builder(
+            controller: vcontroller,
+            itemCount: 1,
+            itemBuilder: (Context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(1.00, -1.00),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            // drawer
+                            Scaffold.of(context).openEndDrawer();
+                          },
+                          child: const Icon(
+                            Icons.dehaze,
+                            color: Colors.black,
+                            size: 50,
                           ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      ),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Search_bar(),
+                    ),
+                    SizedBox(
+                      height: screenHight * 0.05,
+                    ),
+                    const Sort_filter(),
+                    SizedBox(
+                      height: screenHight * 0.08,
+                    ),
+                    Obx(
+                      () => controller.isLoading.value
+                          ? const CircularProgressIndicator()
+                          : GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                mainAxisExtent: 150,
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 10,
+                              ),
+                              itemCount: controller.jobs.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Jobs_contanire(
+                                  job: controller.jobs[index],
+                                );
+                              },
+                            ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        );
+      }),
     );
   }
 }

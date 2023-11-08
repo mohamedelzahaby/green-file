@@ -9,14 +9,9 @@ import '../controllers/create_project_controller.dart';
 class Job_Form extends StatelessWidget {
   Job_Form({super.key});
 
-
-
-
-    CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
-
+  CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
 
   final CreateProjectController controller = Get.put(CreateProjectController());
-
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +42,7 @@ class Job_Form extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
                 controller: controller.companyName,
+                textInputAction: TextInputAction.next,
                 cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   hintText: "company name",
@@ -72,6 +68,7 @@ class Job_Form extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
                 controller: controller.sectorWork,
+                textInputAction: TextInputAction.next,
                 cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   hintText: "Sector work",
@@ -98,6 +95,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: controller.jobTitle,
                 cursorColor: Colors.black,
+                textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(
                   hintText: "job title",
                   // prefixIcon: Icon(
@@ -123,6 +121,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: controller.description,
                 cursorColor: Colors.black,
+                textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(
                   hintText: "descripition",
                   // prefixIcon: Icon(
@@ -148,6 +147,7 @@ class Job_Form extends StatelessWidget {
               child: TextFormField(
                 controller: controller.experiance,
                 cursorColor: Colors.black,
+                textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(
                   hintText: "Expriance",
                   // prefixIcon: Icon(

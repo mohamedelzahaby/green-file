@@ -1,4 +1,4 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers, unused_local_variable, non_constant_identifier_names
+// ignore_for_file: no_leading_underscores_for_local_identifiers, unused_local_variable, non_constant_identifier_names, avoid_print, avoid_function_literals_in_foreach_calls
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -12,6 +12,7 @@ import '../models/job_model.dart';
 
 class CreateProjectController extends GetxController {
   RxBool isLoading = true.obs;
+  String selectedCity = "city";
 
   late TextEditingController companyName;
 
@@ -23,7 +24,7 @@ class CreateProjectController extends GetxController {
   late TextEditingController englishlevel;
   late TextEditingController courses;
   late TextEditingController qualification;
-  late TextEditingController location;
+  late String? location;
 
   final auth = FirebaseAuth.instance;
 
@@ -33,6 +34,21 @@ class CreateProjectController extends GetxController {
   List<XFile>? imageFileList = [];
 
   List<jobModel> jobs = [];
+
+  clearForm() {
+    companyName.clear();
+
+    sectorWork.clear();
+
+    jobTitle.clear();
+    description.clear();
+    experiance.clear();
+    englishlevel.clear();
+    courses.clear();
+    qualification.clear();
+    location = "";
+    update();
+  }
 
   // pickImage() async {
   //   imageFileList = [];
@@ -54,6 +70,11 @@ class CreateProjectController extends GetxController {
   //   //   print(e.toString());
   //   // }
   // }
+
+  void seletcLoation({required String value}) {
+    location = value;
+    update();
+  }
 
   Future<List<String>> uploadImages(List<XFile> images) async {
     List<String> urls = [];
@@ -78,7 +99,7 @@ class CreateProjectController extends GetxController {
     return urls;
   }
 
-  addjob() {
+  Future<void> addjob() async {
     final firestore = FirebaseFirestore.instance;
     // final FirebaseAuth auth =FirebaseAuth.instance;
     if (globalKey.currentState!.validate()) {
@@ -92,19 +113,21 @@ class CreateProjectController extends GetxController {
         Expriance: experiance.text,
         englishlevel: englishlevel.text,
         qualification: qualification.text,
-        location: location.text,
+        location: location ?? "",
         courses: courses.text,
         userId: auth.currentUser!.uid.toString(),
         // userId: 'mostafa',
       );
 
-      firestore
+      await firestore
           .collection('job')
           .doc()
           .set(
             projectModel.toJson(),
           )
           .onError((error, stackTrace) => print(error.toString()));
+
+      clearForm();
     }
   }
 
@@ -113,12 +136,10 @@ class CreateProjectController extends GetxController {
   getJob() async {
     final docs = await FirebaseFirestore.instance.collection("job").get();
 
-
     docs.docs.forEach((element) {
       print("object");
       print(element.data());
       jobs.add(jobModel.fromJson(element));
-
     });
 
     isLoading(false);
@@ -133,7 +154,6 @@ class CreateProjectController extends GetxController {
     englishlevel = TextEditingController();
     courses = TextEditingController();
     qualification = TextEditingController();
-    location = TextEditingController();
     experiance = TextEditingController();
 
     globalKey = GlobalKey<FormState>();

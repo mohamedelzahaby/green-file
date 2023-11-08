@@ -3,6 +3,7 @@
     "build": "npm --config webpack.config.js"
   },
   "dependencies": {
+    "@npmcli/fs": "^3.1.0",
     "firebase": "^10.5.2",
     "lodash": "^4.17.21"
   },

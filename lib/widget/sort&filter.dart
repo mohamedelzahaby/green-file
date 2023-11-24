@@ -16,9 +16,9 @@ class Sort_filter extends StatelessWidget {
           width: screenwidth * 0.07,
           decoration: BoxDecoration(
               color: Colors.grey[200], borderRadius: BorderRadius.circular(18)),
-          child: Row(
+          child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [Icon(Icons.list), Text("filter")]),
+              children: [Icon(Icons.list), Text("filter")]),
         ),
         SizedBox(
           width: screenwidth * 0.01,
@@ -29,9 +29,9 @@ class Sort_filter extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(18)),
-            child: Row(
+            child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [Icon(Icons.sort), Text("sort")]))
+                children: [Icon(Icons.sort), Text("sort")]))
       ],
     );
   }

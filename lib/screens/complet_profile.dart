@@ -39,9 +39,9 @@ class _ProfileState extends State<Profile> {
                     fit: BoxFit.fill,
                     image: AssetImage("assets/img/login.jpg"))),
             height: screenHight,
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "Hallo & Welcome to ",
                   style: TextStyle(

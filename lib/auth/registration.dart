@@ -60,9 +60,9 @@ class _RegistrationState extends State<Registration> {
                     fit: BoxFit.fill,
                     image: AssetImage("assets/img/login.jpg"))),
             height: screenHight,
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "Hello & Welcome to ",
                   style: TextStyle(

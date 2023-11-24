@@ -10,17 +10,17 @@ class Candidates_Contanire extends StatelessWidget {
       final screenHight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Container(
-      child: Row(
+      child: const Row(
         children: [
           Column(
-            children: const [
+            children: [
               Image(
                 image: AssetImage("assets/img/man.jpg"),
               )
             ],
           ),
           Column(
-            children: const [],
+            children: [],
           )
         ],
       ),

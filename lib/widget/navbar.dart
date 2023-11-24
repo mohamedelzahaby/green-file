@@ -18,7 +18,7 @@
 //     return (
 //       bottomNavigationBar: GNav(
 
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_final_fields, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_final_fields, prefer_const_constructors, unused_import
 
 //         activeColor: Colors.white,
 //         backgroundColor: Colors.black,
@@ -72,6 +72,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:green_file/screens/Candidtes.dart';
 import 'package:green_file/screens/post_a_job.dart';
+import 'package:green_file/screens/reports_screen.dart';
 import 'package:line_icons/line_icons.dart';
 
 // import '../screens/home.dart';
@@ -95,10 +96,10 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-   
     Candidates(),
-    Posted_jobs(),
-    Post_a_job()
+    // Posted_jobs(),
+    // Post_a_job(),
+    Reports(),
   ];
 
   @override
@@ -140,13 +141,17 @@ class _NavBarState extends State<NavBar> {
                   icon: LineIcons.personEnteringBooth,
                   text: 'Candidates',
                 ),
+                // GButton(
+                //   icon: LineIcons.eye,
+                //   text: 'Posted jobs',
+                // ),
+                // GButton(
+                //   icon: LineIcons.plus,
+                //   text: 'Post a job',
+                // ),
                 GButton(
-                  icon: LineIcons.eye,
-                  text: 'Posted jobs',
-                ),
-                GButton(
-                  icon: LineIcons.plus,
-                  text: 'Post a job',
+                  icon: LineIcons.newspaper,
+                  text: 'Reports',
                 ),
               ],
               selectedIndex: _selectedIndex,

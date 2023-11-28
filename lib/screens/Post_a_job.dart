@@ -67,27 +67,27 @@ class _Post_a_jobState extends State<Post_a_job> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                  alignment: const AlignmentDirectional(1.00, -1.00),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        // drawer
-                      Scaffold.of(context).openDrawer();
-                      },
-                       child: 
-                       const Icon(
-                        Icons.dehaze,
-                        color: Colors.black,
-                        size: 50,
+                        alignment: const AlignmentDirectional(1.00, -1.00),
+                        child: Padding(
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              // drawer
+                              Scaffold.of(context).openEndDrawer();
+                            },
+                            child: const Icon(
+                              Icons.dehaze,
+                              color: Colors.black,
+                              size: 50,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
                       const Search_bar(),
                       const Padding(
                         padding: EdgeInsets.only(left: 15.0, top: 15.0),

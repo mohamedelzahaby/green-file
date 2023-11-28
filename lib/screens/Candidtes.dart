@@ -48,7 +48,7 @@ class _CandidatesState extends State<Candidates> {
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           // drawer
-                          Scaffold.of(context).openDrawer();
+                          Scaffold.of(context).openEndDrawer();
                         },
                         child: const Icon(
                           Icons.dehaze,

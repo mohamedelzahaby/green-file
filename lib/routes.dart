@@ -2,6 +2,7 @@
 
 import 'package:get/get.dart';
 import 'package:green_file/auth/login.dart';
+import 'package:green_file/screens/companyposted.dart';
 // import 'package:green_file/screens/home.dart';
 import 'package:green_file/screens/complet_profile.dart';
 // import 'package:green_file/screens/onboding/Screen1.dart';
@@ -31,21 +32,20 @@ List<GetPage<dynamic>>? routes = [
     name: AppRoutes.Registration,
     page: () => const Registration(),
   ),
-  // GetPage(
-  //   name: AppRoutes.Home,
-  //   page: () => const Home(),
-  // ),
+  GetPage(
+    name: AppRoutes.Companyposted,
+    page: () => const Companyposted(),
+  ),
 
   GetPage(
     name: AppRoutes.NavBar,
-    page: () =>  NavBar(),
+    page: () => NavBar(),
   ),
 
   // GetPage(
   //   name: AppRoutes.Ar_semulation,
   //   page: () => const Ar_semulation(),
   // ),
-
 ];
 
 class AppRoutes {
@@ -58,4 +58,5 @@ class AppRoutes {
   static const String Profile = '/Profile';
   static const String Home = '/Home';
   static const String NavBar = '/NavBar';
+  static const String Companyposted = '/Companyposted ';
 }

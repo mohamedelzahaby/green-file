@@ -97,8 +97,8 @@ class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     Candidates(),
-    // Posted_jobs(),
-    // Post_a_job(),
+    Posted_jobs(),
+    Post_a_job(),
     Reports(),
   ];
 
@@ -141,14 +141,14 @@ class _NavBarState extends State<NavBar> {
                   icon: LineIcons.personEnteringBooth,
                   text: 'Candidates',
                 ),
-                // GButton(
-                //   icon: LineIcons.eye,
-                //   text: 'Posted jobs',
-                // ),
-                // GButton(
-                //   icon: LineIcons.plus,
-                //   text: 'Post a job',
-                // ),
+                GButton(
+                  icon: LineIcons.eye,
+                  text: 'Posted jobs',
+                ),
+                GButton(
+                  icon: LineIcons.plus,
+                  text: 'Post a job',
+                ),
                 GButton(
                   icon: LineIcons.newspaper,
                   text: 'Reports',

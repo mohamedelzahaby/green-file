@@ -2,16 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:green_file/routes.dart';
-import 'package:green_file/screens/start_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
-          apiKey: "AIzaSyCcYfWg9mR9f9yVn9BpEtTQVKbrAEpKjPI",
-          appId: "1:980052399235:web:0a2b64c253e802681337b6",
-          messagingSenderId: "980052399235",
-          projectId: "green-file-6e537"));
+          apiKey: 'AIzaSyAxokAATDjYYw7aUvUKoevBO9tmJ7TSDNQ',
+          appId: '1:515977321779:ios:01f8019670c2df70edb246',
+          messagingSenderId: '515977321779',
+          projectId: 'green-file-aca8b'));
   runApp(const MyApp());
 }
 
@@ -25,10 +24,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'green file',
       getPages: routes,
+      initialRoute: AppRoutes.Start_Screen,
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const Start_Screen(),
+      // home: const Start_Screen(),
     );
   }
 }

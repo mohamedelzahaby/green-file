@@ -2,12 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_file/controllers/create_company_controller.dart';
+import 'package:green_file/widget/company_contanire.dart';
+// import 'package:green_file/widget/company_contanire.dart';
 
 import 'package:green_file/widget/drawer.dart';
+// import 'package:green_file/widget/jobs_contanire.dart';
+import 'package:green_file/widget/searchbar.dart';
+import 'package:green_file/widget/sort&filter.dart';
 import 'package:vs_scrollbar/vs_scrollbar.dart';
 
-import '../controllers/create_project_controller.dart';
-import '../widget/jobs_contanire.dart';
+// import '../controllers/create_project_controller.dart';
 
 class Companyposted extends StatefulWidget {
   const Companyposted({super.key});
@@ -19,11 +24,12 @@ class Companyposted extends StatefulWidget {
 class _CompanypostedState extends State<Companyposted> {
   // final jobModel job;
   final ScrollController vcontroller = ScrollController();
-  final CreateProjectController controller = Get.put(CreateProjectController());
+  final CreateCompanyController companyController =
+      Get.put(CreateCompanyController());
 
   @override
   void initState() {
-    controller.getJob();
+    companyController.getcompany();
     super.initState();
   }
 
@@ -48,16 +54,6 @@ class _CompanypostedState extends State<Companyposted> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        "11/12/2020",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
                     Align(
                       alignment: const AlignmentDirectional(1.00, -1.00),
                       child: Padding(
@@ -80,8 +76,23 @@ class _CompanypostedState extends State<Companyposted> {
                         ),
                       ),
                     ),
+                    Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Search_bar(),
+                        ),
+                        SizedBox(
+                          height: screenHight * 0.05,
+                        ),
+                        const Sort_filter(),
+                      ],
+                    ),
+                    SizedBox(
+                      height: screenHight * 0.08,
+                    ),
                     Obx(
-                      () => controller.isLoading.value
+                      () => companyController.isLoading.value
                           ? const CircularProgressIndicator()
                           : GridView.builder(
                               shrinkWrap: true,
@@ -93,10 +104,10 @@ class _CompanypostedState extends State<Companyposted> {
                                 crossAxisSpacing: 10,
                                 mainAxisSpacing: 10,
                               ),
-                              itemCount: controller.jobs.length,
+                              itemCount: companyController.companys.length,
                               itemBuilder: (BuildContext context, int index) {
-                                return Jobs_contanire(
-                                  job: controller.jobs[index],
+                                return Companycontainer(
+                                  company: companyController.companys[index],
                                 );
                               },
                             ),

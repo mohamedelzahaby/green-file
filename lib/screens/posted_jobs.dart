@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_file/routes.dart';
+import 'package:green_file/widget/addjob.dart';
 import 'package:green_file/widget/jobs_contanire.dart';
 import 'package:green_file/widget/searchbar.dart';
 import 'package:green_file/widget/sort&filter.dart';
@@ -20,10 +22,10 @@ class Posted_jobs extends StatefulWidget {
 class _Posted_jobsState extends State<Posted_jobs> {
   final ScrollController vcontroller = ScrollController();
   final CreateProjectController controller = Get.put(CreateProjectController());
-
+  final TextEditingController searchController = TextEditingController();
   @override
   void initState() {
-    controller.getJob();
+    controller.getJob(controller.companyName.toString());
     super.initState();
   }
 
@@ -51,7 +53,8 @@ class _Posted_jobsState extends State<Posted_jobs> {
                     Align(
                       alignment: const AlignmentDirectional(1.00, -1.00),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -69,14 +72,32 @@ class _Posted_jobsState extends State<Posted_jobs> {
                         ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Search_bar(),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Search_bar(
+                            textController: searchController,
+                            onChange: (value) {
+                              controller.getJob(searchController.text);
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: screenHight * 0.05,
+                        ),
+                        const Sort_filter(),
+                        SizedBox(height: screenHight * 0.09),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(AppRoutes.Post_a_job);
+                              },
+                              child: const Add_job()),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: screenHight * 0.05,
-                    ),
-                    const Sort_filter(),
                     SizedBox(
                       height: screenHight * 0.08,
                     ),

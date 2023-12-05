@@ -71,6 +71,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:green_file/screens/Candidtes.dart';
+import 'package:green_file/screens/add_company.dart';
+import 'package:green_file/screens/companyposted.dart';
 import 'package:green_file/screens/post_a_job.dart';
 import 'package:green_file/screens/reports_screen.dart';
 import 'package:line_icons/line_icons.dart';
@@ -97,8 +99,8 @@ class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     Candidates(),
-    Posted_jobs(),
-    Post_a_job(),
+    Companyposted(),
+    Addcompany(),
     Reports(),
   ];
 
@@ -143,11 +145,11 @@ class _NavBarState extends State<NavBar> {
                 ),
                 GButton(
                   icon: LineIcons.eye,
-                  text: 'Posted jobs',
+                  text: 'Company Posted',
                 ),
                 GButton(
                   icon: LineIcons.plus,
-                  text: 'Post a job',
+                  text: 'add company ',
                 ),
                 GButton(
                   icon: LineIcons.newspaper,

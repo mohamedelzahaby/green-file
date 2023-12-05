@@ -7,7 +7,7 @@ class Candidates_Contanire extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      final screenHight = MediaQuery.of(context).size.height;
+    final screenHight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Container(
       child: const Row(

@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_file/controllers/create_company_controller.dart';
+import 'package:green_file/widget/companyform.dart';
 
 import 'package:green_file/widget/form.dart';
 import 'package:green_file/widget/form2.dart';
@@ -20,32 +22,16 @@ class Addcompany extends StatefulWidget {
 }
 
 class _AddcompanyState extends State<Addcompany> {
-  final CreateProjectController controller = Get.put(CreateProjectController());
+  // final CreateProjectController controller = Get.put(CreateProjectController());
+
+  final CreateCompanyController companyController =
+      Get.put(CreateCompanyController());
 
   final ScrollController vcontroller = ScrollController();
 
-  CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
-
-  // Future<void> addJob() {
-
-  //   // Call the user's CollectionReference to add a new user
-  //   return jobs
-  //       .add({
-  //         '_companyname': _companynameController.text, // John Doe
-  //         '_sectorwork': _sectorworkController.text, // Stokes and Sons
-  //         '_jobtitle': _jobtitleController.text, // 42
-  //         '_descripition': _descripitionController.text, // 42
-  //         '_Expriance': _ExprianceController.text, // 42
-  //         '_englishlevel': _englishlevelController.text, // John Doe
-  //         '_courses': _coursesController.text, // Stokes and Sons
-  //         '_qualification': _qualificationController.text, // 42
-  //         '_location': _locationController.text, // 42
-  //          // 42
-
-  //       })
-  //       .then((value) => print("job Added"))
-  //       .catchError((error) => print("Failed to add job: $error"));
-  // }
+  // CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
+  // CollectionReference companys =
+  //     FirebaseFirestore.instance.collection('companys');
 
   @override
   Widget build(BuildContext context) {
@@ -67,31 +53,31 @@ class _AddcompanyState extends State<Addcompany> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                  alignment: const AlignmentDirectional(1.00, -1.00),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        // drawer
-                      Scaffold.of(context).openDrawer();
-                      },
-                       child: 
-                       const Icon(
-                        Icons.dehaze,
-                        color: Colors.black,
-                        size: 50,
+                        alignment: const AlignmentDirectional(1.00, -1.00),
+                        child: Padding(
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              // drawer
+                              Scaffold.of(context).openDrawer();
+                            },
+                            child: const Icon(
+                              Icons.dehaze,
+                              color: Colors.black,
+                              size: 50,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
                       const Search_bar(),
                       const Padding(
                         padding: EdgeInsets.only(left: 15.0, top: 15.0),
-                        child: Text("post a job",
+                        child: Text("add company",
                             style: TextStyle(
                               fontSize: 40,
                               fontWeight: FontWeight.bold,
@@ -101,14 +87,13 @@ class _AddcompanyState extends State<Addcompany> {
                         height: screenHight * 0.05,
                       ),
                       Form(
-                        key: controller.globalKey,
+                        key: companyController.globalKey,
                         child: Row(
                           children: [
-                            Job_Form(),
+                            const Company_Form(),
                             SizedBox(
                               width: screenwidth * 0.02,
                             ),
-                            const Job_Form2(),
                           ],
                         ),
                       ),
@@ -118,7 +103,7 @@ class _AddcompanyState extends State<Addcompany> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: GestureDetector(
-                          onTap: () => controller.addjob(),
+                          onTap: () => companyController.Addcompany(),
                           child: Container(
                             width: screenwidth * 0.5,
                             padding: const EdgeInsets.all(10),
@@ -127,7 +112,7 @@ class _AddcompanyState extends State<Addcompany> {
                                 borderRadius: BorderRadius.circular(12)),
                             child: const Center(
                                 child: Text(
-                              "Add job",
+                              "Add Company",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,

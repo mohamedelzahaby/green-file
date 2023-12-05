@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 
 class Search_bar extends StatelessWidget {
-  const Search_bar({super.key});
+  final void Function(String)? onChange;
+  final TextEditingController? textController;
+  const Search_bar({super.key, this.onChange, this.textController});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,8 @@ class Search_bar extends StatelessWidget {
     return Container(
       width: screenwidth * 0.3,
       child: TextFormField(
-        // controller: _emailController,
+        controller: textController,
+        onChanged: onChange,
         cursorColor: Colors.black,
         decoration: InputDecoration(
           suffixIcon: GestureDetector(

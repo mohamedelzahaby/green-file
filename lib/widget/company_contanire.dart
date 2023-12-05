@@ -1,13 +1,12 @@
-// ignore_for_file: camel_case_types
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:green_file/models/job_model.dart';
+import 'package:green_file/models/company_model.dart';
+// import 'package:green_file/models/job_model.dart';
 import 'package:green_file/routes.dart';
 
-class Jobs_contanire extends StatelessWidget {
-  final jobModel job;
-  const Jobs_contanire({super.key, required this.job});
+class Companycontainer extends StatelessWidget {
+  const Companycontainer({super.key, required this.company, });
+  final companyModel company;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class Jobs_contanire extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRoutes.Companyposted);
+        Get.toNamed(AppRoutes.Posted_jobs);
       },
       child: Container(
         height: screenHight * 0.2,
@@ -38,15 +37,15 @@ class Jobs_contanire extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: screenHight * 0.05,
+                    height: screenHight * 0.03,
                   ),
-                  Text(job.companyname),
+                  Text(company.companyname),
                 ],
               ),
               SizedBox(
                 height: screenHight * 0.01,
               ),
-              Text(job.jobtitle,
+              Text(company.sectorwork,
                   style: const TextStyle(
                       color: Colors.green,
                       fontSize: 20,
@@ -60,7 +59,7 @@ class Jobs_contanire extends StatelessWidget {
                     Icons.location_on,
                     color: Colors.grey,
                   ),
-                  Text(job.location),
+                  Text(company.location),
                 ],
               ),
             ],

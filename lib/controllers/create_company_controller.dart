@@ -5,27 +5,21 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:green_file/models/company_model.dart';
+import 'package:green_file/models/job_model.dart';
+// import 'package:green_file/screens/add_company.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:io';
 
-import '../models/job_model.dart';
-
-class CreateProjectController extends GetxController {
+class CreateCompanyController extends GetxController {
   RxBool isLoading = true.obs;
   String selectedCity = "city";
-  late companyModel CompanyModel;
   late jobModel JobModel;
+
   late TextEditingController companyName;
 
   late TextEditingController sectorWork;
 
-  late TextEditingController jobTitle;
-  late TextEditingController description;
-  late TextEditingController experiance;
-  late TextEditingController englishlevel;
-  late TextEditingController courses;
-  late TextEditingController qualification;
   late String? location;
 
   final auth = FirebaseAuth.instance;
@@ -35,43 +29,16 @@ class CreateProjectController extends GetxController {
   final ImagePicker imagePicker = ImagePicker();
   List<XFile>? imageFileList = [];
 
-  List<jobModel> jobs = [];
+  List<companyModel> companys = [];
 
   clearForm() {
     companyName.clear();
 
     sectorWork.clear();
 
-    jobTitle.clear();
-    description.clear();
-    experiance.clear();
-    englishlevel.clear();
-    courses.clear();
-    qualification.clear();
     location = "";
     update();
   }
-
-  // pickImage() async {
-  //   imageFileList = [];
-  //   final List<XFile> selectedImages = await imagePicker.pickMultiImage();
-  //   if (selectedImages.isNotEmpty) {
-  //     imageFileList!.addAll(selectedImages);
-  //   }
-  //   // List<String> url = [];
-  //   // try{
-  //   //   url=await uploadImages(imageFileList!) ;
-  //   //   for(var item in url)
-  //   //     {
-  //   //       print(item.toString());
-  //   //     }
-  //   // }
-  //   // catch(e)
-  //   // {
-  //   //   print('*****************************');
-  //   //   print(e.toString());
-  //   // }
-  // }
 
   void seletcLoation({required String value}) {
     location = value;
@@ -101,31 +68,31 @@ class CreateProjectController extends GetxController {
     return urls;
   }
 
-  Future<void> addjob() async {
+  Future<void> Addcompany() async {
     final firestore = FirebaseFirestore.instance;
     // final FirebaseAuth auth =FirebaseAuth.instance;
     if (globalKey.currentState!.validate()) {
       print("object");
 
-      jobModel projectModel = jobModel(
+      companyModel CompanyModel = companyModel(
         companyname: companyName.text,
-        description: description.text,
+
         sectorwork: sectorWork.text,
-        jobtitle: jobTitle.text,
-        Expriance: experiance.text,
-        englishlevel: englishlevel.text,
-        qualification: qualification.text,
+
         location: location ?? "",
-        courses: courses.text,
-        userId: auth.currentUser!.uid.toString(),
+
+        companyId: auth.currentUser!.uid.toString(),
         // userId: 'mostafa',
       );
 
+// DocumentReference<Map<String, dynamic>> comapnys =await FirebaseFirestore.instance.collection('companys').doc(compModel.companyname).collection('jobs').add(
+//    projectModel.toJson(),
+// );
       await firestore
-          .collection('jobs')
-          .doc(JobModel.companyname)
+          .collection('companys')
+          .doc()
           .set(
-            projectModel.toJson(),
+            CompanyModel.companydata(),
           )
           .onError((error, stackTrace) => print(error.toString()));
 
@@ -135,18 +102,13 @@ class CreateProjectController extends GetxController {
 
   final firestore = FirebaseFirestore.instance;
 
-  getJob(String text) async {
-    final docs = await FirebaseFirestore.instance
-        .collection("jobs")
-
-        // .where(JobModel.companyname, isEqualTo: CompanyModel.companyname)
-        // .where('companyname', isEqualTo: text)
-        .get();
+  getcompany() async {
+    final docs = await FirebaseFirestore.instance.collection("companys").get();
 
     docs.docs.forEach((element) {
       print("object");
       print(element.data());
-      jobs.add(jobModel.fromJson(element));
+      companys.add(companyModel.fromJson(element));
     });
 
     isLoading(false);
@@ -155,13 +117,8 @@ class CreateProjectController extends GetxController {
   @override
   void onInit() {
     companyName = TextEditingController();
-    description = TextEditingController();
+
     sectorWork = TextEditingController();
-    jobTitle = TextEditingController();
-    englishlevel = TextEditingController();
-    courses = TextEditingController();
-    qualification = TextEditingController();
-    experiance = TextEditingController();
 
     globalKey = GlobalKey<FormState>();
     super.onInit();

@@ -25,7 +25,8 @@ class _Posted_jobsState extends State<Posted_jobs> {
   final TextEditingController searchController = TextEditingController();
   @override
   void initState() {
-    controller.getJob();
+    controller
+        .getJob(Get.arguments == null ? "" : Get.arguments.companyname ?? "");
     super.initState();
   }
 
@@ -103,24 +104,35 @@ class _Posted_jobsState extends State<Posted_jobs> {
                     ),
                     Obx(
                       () => controller.isLoading.value
-                          ? const CircularProgressIndicator()
-                          : GridView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                mainAxisExtent: 150,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                              ),
-                              itemCount: controller.jobs.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Jobs_contanire(
-                                  job: controller.jobs[index],
-                                );
-                              },
-                            ),
+                          ? const Center(child: CircularProgressIndicator())
+                          : controller.jobs.isEmpty
+                              ? const Center(
+                                  child: Text(
+                                    "No Data Found",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                )
+                              : GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    mainAxisExtent: 150,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10,
+                                  ),
+                                  itemCount: controller.jobs.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return Jobs_contanire(
+                                      job: controller.jobs[index],
+                                    );
+                                  },
+                                ),
                     ),
                   ],
                 ),

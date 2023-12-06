@@ -12,7 +12,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:io';
 
 class CreateCompanyController extends GetxController {
-  RxBool isLoading = true.obs;
   String selectedCity = "city";
   String selectedsector = "sector";
   String selectedwaytoapplay = "way to apply";
@@ -105,16 +104,17 @@ class CreateCompanyController extends GetxController {
 
   final firestore = FirebaseFirestore.instance;
 
-  getcompany() async {
-    final docs = await FirebaseFirestore.instance.collection("companys").get();
-
-    docs.docs.forEach((element) {
-      print("object");
-      print(element.data());
-      companys.add(companyModel.fromJson(element));
-    });
-
-    isLoading(false);
+  Future<void> getcompany() async {
+    if (companys.isEmpty) {
+      final docs =
+          await FirebaseFirestore.instance.collection("companys").get();
+      docs.docs.forEach((element) {
+        print("object");
+        print(element.data());
+        companys.add(companyModel.fromJson(element));
+      });
+    }
+    update();
   }
 
   @override

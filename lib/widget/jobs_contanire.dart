@@ -1,7 +1,10 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_file/models/job_model.dart';
+
+import '../routes.dart';
 
 class Jobs_contanire extends StatelessWidget {
   final jobModel job;
@@ -14,13 +17,15 @@ class Jobs_contanire extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        // Get.toNamed(AppRoutes.Companyposted);
+        Get.toNamed(AppRoutes.CandidatesProfile);
       },
       child: Container(
         height: screenHight * 0.2,
         width: screenwidth * 0.1,
         decoration: BoxDecoration(
-            color: Colors.green, borderRadius: BorderRadius.circular(10)),
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.grey[200],
+        ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

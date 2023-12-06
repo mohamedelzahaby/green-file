@@ -135,12 +135,11 @@ class CreateProjectController extends GetxController {
 
   final firestore = FirebaseFirestore.instance;
 
-  getJob() async {
-    final docs = await FirebaseFirestore.instance.collection("jobs").get();
-
-    // .where(JobModel.companyname, isEqualTo: CompanyModel.companyname)
-    // .where('companyname', isEqualTo: text)
-    // .get();
+  Future<void> getJob(String text) async {
+    final docs = await FirebaseFirestore.instance
+        .collection("jobs")
+        .where('companyname', isEqualTo: text)
+        .get();
 
     docs.docs.forEach((element) {
       print("object");

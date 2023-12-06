@@ -18,12 +18,13 @@ class Companycontainer extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRoutes.Posted_jobs);
+        Get.toNamed(AppRoutes.Posted_jobs, arguments: company);
       },
       child: Container(
         height: screenHight * 0.2,
         width: screenwidth * 0.2,
-        decoration: BoxDecoration(color: Colors.grey[200]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15), color: Colors.grey[200]),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

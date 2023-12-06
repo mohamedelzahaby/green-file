@@ -27,9 +27,15 @@ class _CompanypostedState extends State<Companyposted> {
   final CreateCompanyController companyController =
       Get.put(CreateCompanyController());
 
+  bool isLoading = true;
+
   @override
   void initState() {
-    companyController.getcompany();
+    companyController.getcompany().then((value) {
+      setState(() {
+        isLoading = false;
+      });
+    });
     super.initState();
   }
 
@@ -91,27 +97,39 @@ class _CompanypostedState extends State<Companyposted> {
                     SizedBox(
                       height: screenHight * 0.08,
                     ),
-                    Obx(
-                      () => companyController.isLoading.value
-                          ? const CircularProgressIndicator()
-                          : GridView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                mainAxisExtent: 150,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                              ),
-                              itemCount: companyController.companys.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Companycontainer(
-                                  company: companyController.companys[index],
+                    GetBuilder<CreateCompanyController>(builder: (context) {
+                      return isLoading
+                          ? const Center(child: CircularProgressIndicator())
+                          : companyController.companys.isEmpty
+                              ? const Center(
+                                  child: Text(
+                                    "No Data Found",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                )
+                              : GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    mainAxisExtent: 150,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10,
+                                  ),
+                                  itemCount: companyController.companys.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return Companycontainer(
+                                      company:
+                                          companyController.companys[index],
+                                    );
+                                  },
                                 );
-                              },
-                            ),
-                    ),
+                    }),
                   ],
                 ),
               );

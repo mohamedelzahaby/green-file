@@ -3,6 +3,7 @@
 import 'package:get/get.dart';
 import 'package:green_file/auth/login.dart';
 import 'package:green_file/screens/Post_a_job.dart';
+import 'package:green_file/screens/candidates_profile.dart';
 import 'package:green_file/screens/companyposted.dart';
 // import 'package:green_file/screens/home.dart';
 import 'package:green_file/screens/complet_profile.dart';
@@ -46,6 +47,10 @@ List<GetPage<dynamic>>? routes = [
     name: AppRoutes.Post_a_job,
     page: () => const Post_a_job(),
   ),
+  GetPage(
+    name: AppRoutes.CandidatesProfile,
+    page: () => const CandidatesProfile(),
+  ),
 ];
 
 class AppRoutes {
@@ -61,4 +66,5 @@ class AppRoutes {
   static const String Companyposted = '/Companyposted';
   static const String Posted_jobs = '/Posted_jobs';
   static const String Post_a_job = '/Post_a_job';
+  static const String CandidatesProfile = '/CandidatesProfile';
 }

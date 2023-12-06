@@ -30,7 +30,7 @@ class _CandidatesState extends State<Candidates> {
         child: ListView.builder(
           controller: vcontroller,
           itemCount: 1,
-          itemBuilder: (Context, index) {
+          itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(

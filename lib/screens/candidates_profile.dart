@@ -51,7 +51,7 @@ class _CandidatesProfileState extends State<CandidatesProfile> {
                     ),
                   ),
                   SizedBox(
-                    height: size.height * 0.4,
+                    height: size.height * 0.42,
                     width: double.infinity,
                     child: Stack(
                       children: [

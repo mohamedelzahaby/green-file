@@ -71,11 +71,8 @@ class _Company_Form2State extends State<Company_Form2> {
                 child: GetBuilder<CreateCompanyController>(builder: (context) {
                   return AppTextField(
                       onSelect: (selectedItems) {
-                        companyController.seletcLoation(
-                            value: selectedItems[0].name);
                         setState(() {
-                          companyController.selectedCity =
-                              selectedItems[0].name;
+                          selectedItems[0].name;
                         });
                       },
                       cities: [
@@ -153,42 +150,6 @@ class _Company_Form2State extends State<Company_Form2> {
                         SelectedListItem(name: "DC@دفع إلكتروني"),
                         SelectedListItem(name: ""),
                         SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        SelectedListItem(name: ""),
-                        
                       ],
                       textEditingController: citiesController,
                       title: "",

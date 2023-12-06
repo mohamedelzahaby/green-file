@@ -123,7 +123,7 @@ class CreateProjectController extends GetxController {
 
       await firestore
           .collection('jobs')
-          .doc(JobModel.companyname)
+          .doc()
           .set(
             projectModel.toJson(),
           )
@@ -135,13 +135,12 @@ class CreateProjectController extends GetxController {
 
   final firestore = FirebaseFirestore.instance;
 
-  getJob(String text) async {
-    final docs = await FirebaseFirestore.instance
-        .collection("jobs")
+  getJob() async {
+    final docs = await FirebaseFirestore.instance.collection("jobs").get();
 
-        // .where(JobModel.companyname, isEqualTo: CompanyModel.companyname)
-        // .where('companyname', isEqualTo: text)
-        .get();
+    // .where(JobModel.companyname, isEqualTo: CompanyModel.companyname)
+    // .where('companyname', isEqualTo: text)
+    // .get();
 
     docs.docs.forEach((element) {
       print("object");

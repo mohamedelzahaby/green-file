@@ -8,8 +8,6 @@ import 'package:green_file/controllers/create_company_controller.dart';
 import 'package:green_file/widget/dropdowen.dart';
 // import 'package:get/get_core/src/get_main.dart';
 
-
-
 class Company_Form extends StatefulWidget {
   const Company_Form({super.key});
 
@@ -27,11 +25,12 @@ class _Company_FormState extends State<Company_Form> {
     final screenHight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Container(
-      width: screenwidth * 0.4,
+      width: screenwidth * 0.3,
       child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Container(
+            width: screenwidth * 0.3,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(12)),
             child: Padding(
@@ -54,6 +53,7 @@ class _Company_FormState extends State<Company_Form> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Container(
+            width: screenwidth * 0.3,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(12)),
             child: Padding(
@@ -76,6 +76,7 @@ class _Company_FormState extends State<Company_Form> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Container(
+            width: screenwidth * 0.3,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(12)),
             child: Padding(

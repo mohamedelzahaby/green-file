@@ -14,6 +14,9 @@ import 'dart:io';
 class CreateCompanyController extends GetxController {
   RxBool isLoading = true.obs;
   String selectedCity = "city";
+  String selectedsector = "sector";
+  String selectedwaytoapplay = "way to apply";
+
   late jobModel JobModel;
 
   late TextEditingController companyName;

@@ -25,7 +25,7 @@ class _Posted_jobsState extends State<Posted_jobs> {
   final TextEditingController searchController = TextEditingController();
   @override
   void initState() {
-    controller.getJob(controller.companyName.toString());
+    controller.getJob();
     super.initState();
   }
 
@@ -74,14 +74,14 @@ class _Posted_jobsState extends State<Posted_jobs> {
                     ),
                     Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: Search_bar(
-                            textController: searchController,
-                            onChange: (value) {
-                              controller.getJob(searchController.text);
-                            },
-                          ),
+                              // textController: searchController,
+                              // onChange: (value) {
+                              //   controller.getJob();
+                              // },
+                              ),
                         ),
                         SizedBox(
                           height: screenHight * 0.05,

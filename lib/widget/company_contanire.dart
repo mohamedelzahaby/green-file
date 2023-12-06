@@ -5,7 +5,10 @@ import 'package:green_file/models/company_model.dart';
 import 'package:green_file/routes.dart';
 
 class Companycontainer extends StatelessWidget {
-  const Companycontainer({super.key, required this.company, });
+  const Companycontainer({
+    super.key,
+    required this.company,
+  });
   final companyModel company;
 
   @override
@@ -33,7 +36,7 @@ class Companycontainer extends StatelessWidget {
                     radius: 30,
                     backgroundColor: Colors.black,
                     backgroundImage: AssetImage(
-                      "assets/img/man.jpg",
+                      "assets/img/aramco.png",
                     ),
                   ),
                   SizedBox(

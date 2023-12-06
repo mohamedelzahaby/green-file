@@ -23,7 +23,7 @@ class _ReportsState extends State<Reports> {
 
   @override
   void initState() {
-    // controller.getJob();
+    controller.getJob();
     super.initState();
   }
 

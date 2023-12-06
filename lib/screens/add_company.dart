@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_file/controllers/create_company_controller.dart';
 import 'package:green_file/widget/companyform.dart';
+import 'package:green_file/widget/companyform2.dart';
 
 import 'package:green_file/widget/form.dart';
 import 'package:green_file/widget/form2.dart';
@@ -91,6 +92,10 @@ class _AddcompanyState extends State<Addcompany> {
                         child: Row(
                           children: [
                             const Company_Form(),
+                            SizedBox(
+                              width: screenwidth * 0.02,
+                            ),
+                            const Company_Form2(),
                             SizedBox(
                               width: screenwidth * 0.02,
                             ),

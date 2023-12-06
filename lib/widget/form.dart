@@ -140,6 +140,7 @@ class Job_Form extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Container(
+            width: 50,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(12)),
             child: Padding(
@@ -150,10 +151,7 @@ class Job_Form extends StatelessWidget {
                 textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(
                   hintText: "Expriance",
-                  // prefixIcon: Icon(
-                  //   Icons.email,
-                  //   color: Colors.grey[400],
-                  // ),
+                 
                   border: InputBorder.none,
                 ),
               ),

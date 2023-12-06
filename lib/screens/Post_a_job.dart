@@ -24,7 +24,7 @@ class _Post_a_jobState extends State<Post_a_job> {
 
   final ScrollController vcontroller = ScrollController();
 
-  CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
+  // CollectionReference jobs = FirebaseFirestore.instance.collection('jobs');
 
   // Future<void> addJob() {
 

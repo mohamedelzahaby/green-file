@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 /// This is Common App textfiled class.
 class AppTextField extends StatefulWidget {
   final TextEditingController textEditingController;
+
   final String title;
   final String hint;
   final bool isCitySelected;
@@ -34,7 +35,7 @@ class _AppTextFieldState extends State<AppTextField> {
       DropDown(
         isDismissible: true,
         bottomSheetTitle: const Text(
-          "Cities",
+          "",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20.0,
@@ -54,10 +55,7 @@ class _AppTextFieldState extends State<AppTextField> {
     ).showModal(context);
   }
 
-  // void showSnackBar(String message) {
-  //   ScaffoldMessenger.of(context)
-  //       .showSnackBar(SnackBar(content: Text(message)));
-  // }
+  
 
   @override
   Widget build(BuildContext context) {

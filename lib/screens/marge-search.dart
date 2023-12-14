@@ -73,7 +73,7 @@ class _Marge_searchState extends State<Marge_search> {
                                   const Sort_filter(),
                                 ],
                               ),
-                              Row(
+                              const Row(
                                 children: [
                                   Column(
                                     children: [],

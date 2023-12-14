@@ -73,6 +73,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:green_file/screens/Candidtes.dart';
 import 'package:green_file/screens/add_company.dart';
 import 'package:green_file/screens/companyposted.dart';
+import 'package:green_file/screens/marge-search.dart';
 import 'package:green_file/screens/post_a_job.dart';
 import 'package:green_file/screens/reports_screen.dart';
 import 'package:line_icons/line_icons.dart';
@@ -102,6 +103,7 @@ class _NavBarState extends State<NavBar> {
     Companyposted(),
     Addcompany(),
     Reports(),
+    Marge_search()
   ];
 
   @override
@@ -154,6 +156,10 @@ class _NavBarState extends State<NavBar> {
                 GButton(
                   icon: LineIcons.newspaper,
                   text: 'Reports',
+                ),
+                GButton(
+                  icon: LineIcons.ad,
+                  text: 'Marge',
                 ),
               ],
               selectedIndex: _selectedIndex,

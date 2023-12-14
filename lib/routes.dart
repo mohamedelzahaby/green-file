@@ -7,6 +7,7 @@ import 'package:green_file/screens/candidates_profile.dart';
 import 'package:green_file/screens/companyposted.dart';
 // import 'package:green_file/screens/home.dart';
 import 'package:green_file/screens/complet_profile.dart';
+import 'package:green_file/screens/marge-search.dart';
 import 'package:green_file/screens/posted_jobs.dart';
 
 import 'package:green_file/screens/start_screen.dart';
@@ -51,6 +52,10 @@ List<GetPage<dynamic>>? routes = [
     name: AppRoutes.CandidatesProfile,
     page: () => const CandidatesProfile(),
   ),
+  GetPage(
+    name: AppRoutes.Marge_search,
+    page: () => const Marge_search(),
+  ),
 ];
 
 class AppRoutes {
@@ -67,4 +72,5 @@ class AppRoutes {
   static const String Posted_jobs = '/Posted_jobs';
   static const String Post_a_job = '/Post_a_job';
   static const String CandidatesProfile = '/CandidatesProfile';
+  static const String Marge_search = '/Marge_search';
 }

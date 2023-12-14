@@ -118,15 +118,16 @@ class _Company_Form2State extends State<Company_Form2> {
                 child: GetBuilder<CreateCompanyController>(builder: (context) {
                   return AppTextField(
                       onSelect: (selectedItems) {
-                        companyController.seletcLoation(
-                            value: selectedItems[0].name);
+                     
+                            selectedItems[0].name;
                         setState(() {
-                          companyController.selectedCity =
+                         
                               selectedItems[0].name;
                         });
                       },
                       cities: [
-                        SelectedListItem(name: "AA@ مدارس متنوعة"),
+                        SelectedListItem(
+                            value: "قطاع التعليم", name: "AA@ مدارس متنوعة"),
                         SelectedListItem(name: "AB@  المدارس الأهلية"),
                         SelectedListItem(name: "AC@  المدارس الدولية"),
                         SelectedListItem(name: "AD@  جامعات"),
